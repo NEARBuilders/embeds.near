@@ -1,9 +1,10 @@
-// Feed
-const things = Social.keys(`*/plugin/embed/*`, "final", {
+const { type, widgetSrc } = props;
+
+const plugins = Social.keys(`*/plugin/${type || "*"}/*`, "final", {
   return_type: "BlockHeight",
 });
 
-if (!things) {
+if (!plugins) {
   return "Loading...";
 }
 
@@ -12,6 +13,11 @@ const Container = styled.div`
   padding: 20px;
   width: 100%;
   max-width: 1200px;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 `;
 
 const Grid = styled.div`
@@ -42,7 +48,6 @@ const processData = useCallback(
     const allItems = accounts
       .map((account) => {
         const accountId = account[0];
-        console.log("account other", account[1])
         const plugins = Object.entries(account[1].plugin.embed);
         if (plugins.length > 0) {
           return plugins.map((kv) => {
@@ -75,17 +80,16 @@ const processData = useCallback(
   [type]
 );
 
-// return <p>{JSON.stringify(things)}</p>
-const items = processData(things);
+const items = processData(plugins);
 
 if (!items) {
   return "Loading data...";
 }
 
-function Item({ accountId, name, metadata}) {
+function Item({ accountId, name, metadata }) {
   return (
     <Widget
-      src="embeds.near/widget/EmbedPlugin" 
+      src="embeds.near/widget/EmbedPlugin"
       props={{ accountId, name, type, metadata }}
     />
   );
@@ -95,22 +99,23 @@ const [showCreator, setShowCreator] = useState("");
 
 return (
   <Container>
-    <div className="d-flex justify-content-between align-items-center mb-3">
-      <h3>every {type}</h3>
-      <div>
-        <button
-          className="classic me-2"
-          onClick={() => setShowCreator(!showCreator)}
-        >
-          <i className="bi bi-plus" />
-        </button>
+    <p class="d-flex flex-row-reverse">
+      <button
+        class="btn btn-primary"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#plugin-creator"
+        aria-expanded="false"
+        aria-controls="plugin-creator"
+      >
+        <i className="bi bi-plus" /> Create Plugin
+      </button>
+    </p>
+    <div class="collapse" id="plugin-creator">
+      <div class="card card-body">
+        <Widget src="embeds.near/widget/Plugin.Creator" />
       </div>
     </div>
-    {showCreator && (
-      <>
-        <Widget src="embeds.near/widget/Creator" props={{}} />
-      </>
-    )}
     {items.length === 0 ? (
       <p>No items of type: "{type}" found.</p>
     ) : (

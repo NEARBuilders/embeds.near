@@ -1,20 +1,15 @@
-/**
- * Easypoll <- widgets
- * Video <- widgets
- * NFTs
- */
+const Wrapper = styled.div`
+  border-radius: 0.5em;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #eee;
+  white-space: normal;
+  margin-top: 12px;
+`;
 
-/**
- * TODO:
-  * Uninstalling
-  * Installing a full plugin
-
- */
-
-// [EMBED](https://near.social/easypoll-v0.ndc-widgets.near/widget/EasyPoll?page=view_poll&src=clippy.near/easypoll-4.0.0/poll/339f6c601bdf7lp8qj7j39ec4733c053db)
 const accountId = context.accountId;
 
-// default embeds
+// Default Embeds
 const EmbedMap = new Map([
   [
     "mob.near/widget/MainPage.N.Post.Page",
@@ -24,20 +19,18 @@ const EmbedMap = new Map([
     "mob.near/widget/MainPage.N.Post.Embed",
     "mob.near/widget/MainPage.N.Post.Embed",
   ],
-  // [
-  //   "easypoll-v0.ndc-widgets.near/widget/EasyPoll",
-  //   "embeds.near/widget/Poll"
-  // ]
 ]);
 
-const installedEmbeds = JSON.parse(
-  Social.get(`${accountId}/settings/every/embed`, "final") || "null"
-);
+if (accountId) {
+  const installedEmbeds = JSON.parse(
+    Social.get(`${accountId}/settings/every/embed`, "final") || "null"
+  );
 
-if (installedEmbeds) {
-  installedEmbeds.forEach((embed) => {
-    EmbedMap.set(embed.widgetSrc, embed.embedSrc);
-  });
+  if (installedEmbeds) {
+    installedEmbeds.forEach((embed) => {
+      EmbedMap.set(embed.widgetSrc, embed.embedSrc);
+    });
+  }
 }
 
 const href = props.href;
@@ -87,50 +80,38 @@ function filterByWidgetSrc(obj, widgetSrcValue) {
 }
 
 if (!parsed || !EmbedMap.has(parsed.widgetSrc)) {
-  // get all the available embed plugins that use this widgetSrc
-  // embed plugin will be able to be liked, starred, and you can see who is using it
-
-  const availableEmbedPlugins = Social.get("*/plugin/embed/**", "final");
-  const embedPlugins = filterByWidgetSrc(
-    availableEmbedPlugins,
-    parsed.widgetSrc
-  );
-  console.log("availableEmbedPlugins", availableEmbedPlugins);
   return (
-    <div className="border">
-      {embedPlugins.length ? (
-        <>
-          {embedPlugins.map((it) => {
-            console.log("embeddable", it);
-            const plugin = JSON.parse(it[""]);
-            return (
-              <div className="border">
-                <Widget
-                  src="embeds.near/widget/EmbedPlugin"
-                  props={{ plugin }}
-                />
-              </div>
-            );
-          })}
-        </>
-      ) : (
-        <p>No plugins found for this widget src</p>
-      )}
-      <a href={href}>{props.children}</a>
-    </div>
+    <Wrapper>
+      <div
+        className="d-flex justify-content-center align-items-center"
+        style={{ height: "200px" }}
+      >
+        <div className="text-center">
+          <p>You do not have a plugin installed to render this embedding.</p>
+          <Link
+            to={`/embeds.near/widget/Plugin.Index?type=embed&widgetSrc=${parsed.widgetSrc}`}
+            className="btn btn-primary mb-3"
+          >
+            <i className="bi bi-plug" /> Install one from the marketplace
+            &#8594;
+          </Link>
+          <div>
+            <span>
+              {`or `}
+              <a href={href} target="_blank" rel="noopener noreferrer">
+                click here
+              </a>
+              {` to view`}
+            </span>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
   );
 }
 
-const Wrapper = styled.div`
-  border-radius: 0.5em;
-  width: 100%;
-  overflow: hidden;
-  border: 1px solid #eee;
-  white-space: normal;
-  margin-top: 12px;
-`;
-
 const widgetSrc = EmbedMap.get(parsed.widgetSrc);
+
 return (
   <Wrapper>
     <Widget loading="" src={widgetSrc} props={parsed.props} />

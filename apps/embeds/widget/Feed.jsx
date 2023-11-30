@@ -16,7 +16,9 @@ return (
     Item={(p) => {
       return (
         <Widget
+          key={JSON.stringify(p)}
           src="embeds.near/widget/Post.Index"
+          loading={<div style={{ height: "200px" }} />}
           props={{ accountId: p.accountId, blockHeight: p.blockHeight }}
         />
       );

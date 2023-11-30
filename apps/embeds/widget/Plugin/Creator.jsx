@@ -1,3 +1,7 @@
+/**
+ * TODO: This should be more generalized. 
+ * Currently only supports embed plugins
+ */
 const Wrapper = styled.div`
   max-width: 400px;
   margin: 0 auto;

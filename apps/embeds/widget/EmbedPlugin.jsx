@@ -70,7 +70,6 @@ if (plugin) {
     </div>
   );
 }
-
 const data = JSON.parse(
   Social.get(`${accountId}/plugin/embed/${name}`, "final") || "null"
 );
@@ -143,8 +142,8 @@ return (
                   embed: [
                     ...(installedEmbeds || []),
                     {
-                      widgetSrc: plugin.widgetSrc,
-                      embedSrc: plugin.embedSrc,
+                      widgetSrc: data.widgetSrc,
+                      embedSrc: data.embedSrc,
                     },
                   ],
                 },
