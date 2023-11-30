@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "bos-workspace dev"
+    "dev": "bos-workspace dev",
+    "build": "bos-workspace build"
   },
   "author": "",
   "license": "MIT",
