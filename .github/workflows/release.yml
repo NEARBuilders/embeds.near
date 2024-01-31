@@ -1,15 +1,17 @@
-name: Deploy Embed App Components to Mainnet
+name: Deploy Components to Mainnet
+
 on:
   push:
     branches: [main]
+
 jobs:
   deploy-mainnet:
-    uses: NEARBuilders/bos-workspace/.github/workflows/deploy.yml@main
+    uses: nearbuilders/bos-workspace/.github/workflows/deploy.yml@main
     with:
       deploy-env: "mainnet"
       app-name: "embeds"
-      deploy-account-address:  ${{ vars.DEPLOY_ACCOUNT_ID }}
+      deploy-account-address: ${{ vars.DEPLOY_ACCOUNT_ID }} 
       signer-account-address: ${{ vars.SIGNER_ACCOUNT_ID }}
       signer-public-key: ${{ vars.SIGNER_PUBLIC_KEY }}
-    secrets:
-      SIGNER_PRIVATE_KEY:  ${{ secrets.SIGNER_PRIVATE_KEY }}
+    secrets: 
+      SIGNER_PRIVATE_KEY: ${{ secrets.SIGNER_PRIVATE_KEY }}

@@ -10,6 +10,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "bos-workspace": "github:nearbuilders/bos-workspace#main"
+    "bos-workspace": "^0.0.1-alpha.4"
   }
 }
