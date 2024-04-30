@@ -10,7 +10,7 @@ const Container = styled.div`
   }
 `;
 
-const [content, setContent] = useState("embeds.near/widget/Plugin.Marketplace");
+const [content, setContent] = useState("${config_account}/widget/Plugin.Marketplace");
 
 const Content = () => {
   return <Widget src={content} props={props} />;
@@ -20,7 +20,7 @@ return (
   <Container>
     <div className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/embeds.near/widget/Plugin.Index">
+        <Link className="navbar-brand" to="/${config_account}/widget/Plugin.Index">
           <i className="bi bi-plug" /> Every Plugin
         </Link>
         <button
@@ -41,7 +41,7 @@ return (
                 className="nav-link active"
                 aria-current="page"
                 onClick={() =>
-                  setContent("embeds.near/widget/Plugin.Marketplace")
+                  setContent("${config_account}/widget/Plugin.Marketplace")
                 }
               >
                 Marketplace
@@ -50,7 +50,7 @@ return (
             <li className="nav-item">
               <div
                 className="nav-link active"
-                onClick={() => setContent("embeds.near/widget/Plugin.Settings")}
+                onClick={() => setContent("${config_account}/widget/Plugin.Settings")}
               >
                 Installed
               </div>

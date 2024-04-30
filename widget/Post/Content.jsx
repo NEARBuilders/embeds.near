@@ -68,7 +68,7 @@ const [onImage] = useState(
     props.src && (
       <Widget
         key="content-img"
-        src="mob.near/widget/MainPage.N.Post.Content.Image"
+        src="${alias_mob}/widget/MainPage.N.Post.Content.Image"
         loading={<div className="w-100" style={{ height: "24em" }} />}
         props={{
           image: {
@@ -83,7 +83,7 @@ const [onImage] = useState(
 const onLink = useCallback((props) => {
   if (props.children[0] === "EMBED") {
     // EMBED
-    return <Widget src="embeds.near/widget/Embed" loading="" props={props} />;
+    return <Widget src="${config_account}/widget/Embed" loading="" props={props} />;
   } else {
     return <a {...props} />;
   }
@@ -96,7 +96,7 @@ return (
         <Widget
           key="content"
           loading={<div className="w-100" style={{ height: "100px" }} />}
-          src="mob.near/widget/N.SocialMarkdown"
+          src="${alias_mob}/widget/N.SocialMarkdown"
           props={{
             text: content.text,
             onHashtag,
@@ -108,7 +108,7 @@ return (
       {content.image && (
         <div key="content-img" className="mt-2">
           <Widget
-            src="mob.near/widget/MainPage.N.Post.Content.Image"
+            src="${alias_mob}/widget/MainPage.N.Post.Content.Image"
             loading={<div className="w-100" style={{ height: "24em" }} />}
             props={{ image: content.image, alt: "attached image" }}
           />

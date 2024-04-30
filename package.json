@@ -7,7 +7,7 @@
     "bw": "bos-workspace",
     "dev": "bw dev",
     "dev:testnet": "bw dev -n testnet",
-    "build": "bw ws build",
+    "build": "bw build",
     "build:testnet": "bw build -n testnet"
   },
   "author": "nearbuilders",
