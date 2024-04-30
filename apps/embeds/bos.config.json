@@ -1,3 +1,10 @@
 {
-  "appAccount": "embeds.near"
+  "account": "embeds.near",
+  "aliases": ["./aliases.mainnet.json"],
+  "overrides": {
+    "testnet": {
+      "account": "embeds.testnet",
+      "aliases": ["./aliases.testnet.json"]
+    }
+  }
 }
