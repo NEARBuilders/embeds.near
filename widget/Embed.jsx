@@ -10,14 +10,14 @@ const accountId = context.accountId;
 // Default Embeds
 const EmbedMap = new Map([
   [
-    "mob.near/widget/MainPage.N.Post.Page",
-    "mob.near/widget/MainPage.N.Post.Embed",
+    "${alias_mob}/widget/MainPage.N.Post.Page",
+    "${alias_mob}/widget/MainPage.N.Post.Embed",
   ],
   [
-    "mob.near/widget/MainPage.N.Post.Embed",
-    "mob.near/widget/MainPage.N.Post.Embed",
+    "${alias_mob}/widget/MainPage.N.Post.Embed",
+    "${alias_mob}/widget/MainPage.N.Post.Embed",
   ],
-  ["video.every.near/widget/app", "video.every.near/widget/card"],
+  ["${alias_video_every}/widget/app", "${alias_video_every}/widget/card"],
 ]);
 
 if (accountId) {
@@ -133,7 +133,7 @@ if (!parsed || !EmbedMap.has(parsed.src)) {
         <div className="text-center">
           <p>You do not have a plugin installed to render this embedding.</p>
           <Link
-            to={`/embeds.near/widget/Plugin.Index?type=embed&src=${href}`}
+            to={`/${config_account}/widget/Plugin.Index?type=embed&src=${href}`}
             className="btn btn-primary mb-3"
           >
             <i className="bi bi-plug" /> Install one from the marketplace

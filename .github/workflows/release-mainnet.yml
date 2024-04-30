@@ -11,6 +11,6 @@ jobs:
       app-name: "embeds.near"
       deploy-account-address: "embeds.near"
       signer-account-address: "embeds.near"
-      signer-public-key: [PUBLIC_KEY]
-    secrets:
-      SIGNER_PRIVATE_KEY: ${{ secrets.SIGNER_PRIVATE_KEY }} // then configure this in your Github/Settings/Actions
+      signer-public-key: ${{ vars.SIGNER_PUBLIC_KEY }}
+    secrets: 
+      SIGNER_PRIVATE_KEY: ${{ secrets.SIGNER_PRIVATE_KEY }}

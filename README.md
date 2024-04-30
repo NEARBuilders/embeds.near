@@ -1,17 +1,17 @@
-## Getting Started 
+# embeds.near
 
-```
-npm install
-```
+## Getting started
 
-Then, run the command:
+1. Install packages
 
-```
-npm run dev
+```cmd
+yarn install
 ```
 
-This will serve the widgets from `http://127.0.0.1:4040/`.
+2. Start dev environment
 
-Go to [everything.dev/flags](https://everything.dev) and paste this value there.
+```cmd
+yarn run dev
+```
 
-Once set, see the locally served app at [embeds.near/widget/Feed](https://everything.dev/embeds.near/widget/Feed).
+This will start a gateway at [127.0.0.1:8080](http://127.0.0.1:8080) which will render your local widgets. The entry point for this app is [embeds.near/widget/Feed](http://127.0.0.1:8080/embeds.near/widget/Feed)

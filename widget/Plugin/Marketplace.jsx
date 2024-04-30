@@ -89,7 +89,7 @@ if (!items) {
 function Item({ accountId, name, metadata }) {
   return (
     <Widget
-      src="embeds.near/widget/EmbedPlugin"
+      src="${config_account}/widget/EmbedPlugin"
       props={{ accountId, name, type, metadata }}
     />
   );
@@ -113,7 +113,7 @@ return (
     </p>
     <div class="collapse" id="plugin-creator">
       <div class="card card-body">
-        <Widget src="embeds.near/widget/Plugin.Creator" />
+        <Widget src="${config_account}/widget/Plugin.Creator" />
       </div>
     </div>
     {items.length === 0 ? (

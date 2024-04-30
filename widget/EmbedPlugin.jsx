@@ -46,7 +46,7 @@ if (plugin) {
             install
           </button>
           <Widget
-            src="mob.near/widget/N.StarButton"
+            src="${alias_mob}/widget/N.StarButton"
             props={{
               notifyAccountId: accountId,
               item: {
@@ -56,7 +56,7 @@ if (plugin) {
             }}
           />
           <Widget
-            src="mob.near/widget/N.LikeButton"
+            src="${alias_mob}/widget/N.LikeButton"
             props={{
               notifyAccountId: accountId,
               item: {
@@ -154,7 +154,7 @@ return (
           install
         </button>
         <Widget
-          src="mob.near/widget/N.StarButton"
+          src="${alias_mob}/widget/N.StarButton"
           props={{
             notifyAccountId: accountId,
             item: {
@@ -164,7 +164,7 @@ return (
           }}
         />
         <Widget
-          src="mob.near/widget/N.LikeButton"
+          src="${alias_mob}/widget/N.LikeButton"
           props={{
             notifyAccountId: accountId,
             item: {

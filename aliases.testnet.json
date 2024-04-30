@@ -1,3 +1,5 @@
 {
-  "devs": "neardevs.testnet"
+  "devs": "neardevs.testnet",
+  "mob": "mike.testnet",
+  "video.every": "video.every.testnet"
 }
