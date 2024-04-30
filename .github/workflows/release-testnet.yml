@@ -10,8 +10,8 @@ jobs:
       build-env: "testnet"
       deploy-env: "testnet"
       app-name: "embeds.near"
-      deploy-account-address: "neardevs.testnet" // testnet account
-      signer-account-address: "neardevs.testnet"
+      deploy-account-address: "embeds.testnet" // testnet account
+      signer-account-address: "embeds.testnet"
       signer-public-key: [PUBLIC_KEY] 
     secrets:
       SIGNER_PRIVATE_KEY: ${{ secrets.SIGNER_PRIVATE_KEY }} // then configure this in your Github/Settings/Actions
