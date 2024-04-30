@@ -1,18 +1,18 @@
 {
-  "name": "embeds",
+  "name": "embeds.near",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "bw": "bos-workspace",
-    "dev": "bw ws dev",
-    "dev:testnet": "bw ws dev -n testnet",
+    "dev": "bw dev",
+    "dev:testnet": "bw dev -n testnet",
     "build": "bw ws build",
-    "build:testnet": "bw ws build -n testnet"
+    "build:testnet": "bw build -n testnet"
   },
   "author": "nearbuilders",
   "license": "MIT",
   "dependencies": {
-    "bos-workspace": "^0.0.1-alpha.4"
+    "bos-workspace": "^1.0.0-alpha"
   }
 }
